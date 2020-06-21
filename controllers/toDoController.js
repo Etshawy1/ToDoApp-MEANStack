@@ -55,7 +55,7 @@ exports.getAllToDos = catchAsync(async (req, res, next) => {
   const docs = await ToDo.find({ owner: req.user._id }).sort({
     checked: 1,
     createdAt: -1,
-    checkedAt: 1
+    checkedAt: -1
   });
 
   // SEND RESPONSE
