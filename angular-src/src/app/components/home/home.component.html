@@ -1,6 +1,7 @@
 <h1>Organise all your tasks</h1>
 <br>
-<button class="btn btn-primary" [routerLink]="['/register']">Get Started</button>
+<button *ngIf="!authService.loggedIn()" class="btn btn-primary" [routerLink]="['/register']">Get Started</button>
+<button *ngIf="authService.loggedIn()" class="btn btn-primary" [routerLink]="['/list']">Organize your work</button>
 <br>
 <br>
 <img src="assets/home.svg">

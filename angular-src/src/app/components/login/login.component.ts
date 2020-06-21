@@ -21,7 +21,11 @@ export class LoginComponent implements OnInit {
     private flashMessage: FlashMessagesService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.loggedIn()) {
+      this.router.navigate(['/']);
+    }
+  }
 
   showSuccess() {
     this.flashMessage.show('Success', {
@@ -33,7 +37,7 @@ export class LoginComponent implements OnInit {
   showErrors(errorMessage) {
     this.flashMessage.show(errorMessage, {
       cssClass: 'alert-danger',
-      timeout: 3000,
+      timeout: 6000,
     });
   }
 

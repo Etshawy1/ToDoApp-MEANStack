@@ -23,7 +23,11 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.loggedIn()) {
+      this.router.navigate(['/']);
+    }
+  }
 
   showSuccess() {
     this.flashMessage.show('Success', {
@@ -35,7 +39,7 @@ export class RegisterComponent implements OnInit {
   showErrors(errorMessage) {
     this.flashMessage.show(errorMessage, {
       cssClass: 'alert-danger',
-      timeout: 3000,
+      timeout: 6000,
     });
   }
 
