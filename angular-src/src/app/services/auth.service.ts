@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
+const helper = new JwtHelperService();
 
 @Injectable({
   providedIn: 'root',
@@ -7,16 +11,14 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
   constructor(private httpClient: HttpClient) {}
 
-  authToken: any;
   user: any;
 
-  private REST_API_SERVER = 'http://localhost:3000/api/v1/';
   sendRegisterRequest(user) {
-    return this.httpClient.post(`${this.REST_API_SERVER}users/signup`, user);
+    return this.httpClient.post(`users/signup`, user);
   }
 
   sendLoginRequest(user) {
-    return this.httpClient.post(`${this.REST_API_SERVER}users/login`, user);
+    return this.httpClient.post(`users/login`, user);
   }
 
   storeUserData(token, user) {
@@ -24,12 +26,26 @@ export class AuthService {
     localStorage.setItem('userName', user.name);
     localStorage.setItem('userId', user._id);
     this.user = user;
-    this.authToken = token;
+    environment.authToken = token;
+  }
+
+  loadToken() {
+    environment.authToken = localStorage.getItem('id_token');
+  }
+
+  setAuthHeader() {
+    let headers = new HttpHeaders();
+    this.loadToken();
+    return headers.append('Authorization', `Bearer ${environment.authToken}`);
   }
 
   logout() {
-    this.authToken = undefined;
+    environment.authToken = undefined;
     this.user = undefined;
     localStorage.clear();
+  }
+
+  loggedIn() {
+    return !helper.isTokenExpired(localStorage.getItem('id_token'));
   }
 }

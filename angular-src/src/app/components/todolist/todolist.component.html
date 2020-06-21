@@ -1,1 +1,37 @@
-<p>todolist works!</p>
+<div class="jumbotron" style="padding:45px 0px">
+  <h4 class="text-center">To Do List App</h4>
+</div>
+
+
+
+<div class="container">
+  <div class="input-group">
+    <div class="input-group-addon hover-cursor" (click)="createToDo(todo.value); todo.value = null;">
+      <span class="input-group-text"><i class="fas fa-plus"></i></span>
+    </div>
+    <input (keyup.enter)="createToDo(todo.value); todo.value = null;" type="text" class="form-control"
+      placeholder="enter your amazing tasks you want to do" #todo>
+  </div>
+  <br>
+
+  <div class="card text-white bg-primary mb-3" *ngFor="let item of ToDoList">
+    <div class="card-body">
+      <div class="container">
+        <div class="row">
+          <div class="hover-cursor col-2 " [class.text-success]="item.checked"
+            (click)="checkOrUncheckToDo(item._id, !item.checked)">
+            <i class="fa fa-lg" [ngClass]="item.checked?'fa-check-circle-o':'fa-circle-thin'"></i>
+          </div>
+
+          <div class="col-8">
+            {{item.content}}
+          </div>
+
+          <div class="hover-cursor text-danger col-2" (click)="deleteToDo(item._id)">
+            <i class="fa fa-trash-o fa-lg"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

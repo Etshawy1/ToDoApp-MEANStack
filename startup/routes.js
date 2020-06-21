@@ -22,12 +22,15 @@ module.exports = function (app) {
   app.use(bodyParser.json({ extended: true, limit: '50mb' }));
 
   // static files
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use(express.static(path.join(__dirname, '../public')));
 
   // apis
   app.use('/api/v1/users', userRouter);
   app.use('/api/v1/todo', toDoRouter);
 
+  app.get('*', (req, res, next) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
+  });
   // if any link is visited and not mentioned above will go to that next middleware
   app.all('*', (req, res, next) => {
     next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));

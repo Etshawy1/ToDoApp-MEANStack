@@ -1,15 +1,43 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
-  ToDoList: Array<any>;
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private authService: AuthService
+  ) {}
 
-  private REST_API_SERVER = 'http://localhost:3000/api/v1/';
   getToDoList() {
-    return this.httpClient.get(`${this.REST_API_SERVER}todos`);
+    const headers = this.authService.setAuthHeader();
+    return this.httpClient.get(`todo`, {
+      headers,
+    });
+  }
+
+  createToDo(content) {
+    const todo = { content, createdAt: Date.now() };
+    const headers = this.authService.setAuthHeader();
+    return this.httpClient.post(`todo`, todo, {
+      headers,
+    });
+  }
+
+  updateToDo(content) {
+    const headers = this.authService.setAuthHeader();
+    return this.httpClient.patch(`todo/${content._id}`, content, {
+      headers,
+    });
+  }
+
+  deleteToDo(content) {
+    const headers = this.authService.setAuthHeader();
+    return this.httpClient.delete(`todo/${content._id}`, {
+      headers,
+    });
   }
 }

@@ -21,7 +21,7 @@ exports.deleteToDo = catchAsync(async (req, res, next) => {
 exports.updateToDo = catchAsync(async (req, res, next) => {
   const doc = await ToDo.findOneAndUpdate(
     { _id: req.params.id, owner: req.user.id },
-    _.pick(req.body, ['content', 'checked', 'checkedAt']),
+    _.pick(req.body, ['content', 'checked', 'checkedAt', 'createdAt']),
     {
       new: true,
       runValidators: true
@@ -52,7 +52,11 @@ exports.getToDo = catchAsync(async (req, res, next) => {
 });
 
 exports.getAllToDos = catchAsync(async (req, res, next) => {
-  const docs = await ToDo.find({ owner: req.user._id });
+  const docs = await ToDo.find({ owner: req.user._id }).sort({
+    checked: 1,
+    createdAt: -1,
+    checkedAt: 1
+  });
 
   // SEND RESPONSE
   res.status(200).json(docs);
