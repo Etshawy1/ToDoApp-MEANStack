@@ -17,6 +17,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 // validations
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { TodolistComponent } from './components/todolist/todolist.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { AuthService } from './services/auth.service';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
+    TodolistComponent,
   ],
   imports: [
     AppRoutingModule,
