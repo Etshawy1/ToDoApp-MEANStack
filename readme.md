@@ -1,6 +1,6 @@
 # ToDoApp-MEANStack
 
-![logo](./angular-src/src/icon.svg)
+![logo](./angular-src/src/appicon.svg)
 
 A simple to do list application with accounts and authentication to store a to-do list for each user using MEAN stack technologies.
 
