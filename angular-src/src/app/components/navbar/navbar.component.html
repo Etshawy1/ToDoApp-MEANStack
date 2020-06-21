@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <button type="button" class="navbar-toggler hidden-sm-up" data-toggle="collapse" data-target="#collapseNavBar"
+    aria-expanded="false" aria-controls="navbar">
+    &#9776;
+  </button>
+  <div class="collapse navbar-collapse" id="collapseNavBar">
+    <ul class="navbar-nav navbar-left">
+      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a
+          class="nav-link py-1" [routerLink]="'/'">Home</a></li>
+    </ul>
+
+    <ul class="navbar-nav navbar-right">
+      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a
+          class="nav-link py-1" [routerLink]="'/login'">Login</a></li>
+      <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"><a
+          class="nav-link py-1" [routerLink]="'/register'">Register</a></li>
+      <li class="nav-item"><a class="nav-link py-1" [routerLink]="'/'" (click)="onLogout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<br>

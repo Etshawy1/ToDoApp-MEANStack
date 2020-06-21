@@ -1,0 +1,34 @@
+h2 {
+  color: #fff;
+}
+
+.btn {
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  margin: 0.5em 0em;
+}
+
+input {
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+}
+
+span {
+  color: #bbb;
+}
+
+span a {
+  color: rgb(150, 150, 150);
+}
+
+@media only screen and (min-width: 750px) {
+  .btn {
+    margin: 0em 0.5em;
+  }
+}

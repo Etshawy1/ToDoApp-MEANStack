@@ -1,0 +1,23 @@
+<div class="container-12">
+  <div class="jumbotron bg-dark col-md-6 offset-md-3">
+    <div class=" space-bot text-center">
+      <h2>Login</h2>
+      <hr>
+    </div>
+    <br>
+    <form (submit)="onLogin()">
+      <div class="form-group">
+        <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-group">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Password">
+      </div>
+      <div class="space-top">
+        <button type="submit" class="btn btn-success col-md-4">Login</button>
+        <button type="button" class="btn btn-danger col-md-4" [routerLink]="'/'">Cancel</button>
+      </div>
+      <hr>
+      <span>don't have an account? <a [routerLink]="'/register'">signup</a></span>
+    </form>
+  </div>
+</div>
