@@ -2001,12 +2001,12 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       _createClass(AuthService, [{
         key: "sendRegisterRequest",
         value: function sendRegisterRequest(user) {
-          return this.httpClient.post("users/signup", user);
+          return this.httpClient.post("api/v1/users/signup", user);
         }
       }, {
         key: "sendLoginRequest",
         value: function sendLoginRequest(user) {
-          return this.httpClient.post("users/login", user);
+          return this.httpClient.post("api/v1/users/login", user);
         }
       }, {
         key: "storeUserData",
@@ -2123,7 +2123,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "getToDoList",
         value: function getToDoList() {
           var headers = this.authService.setAuthHeader();
-          return this.httpClient.get("todo", {
+          return this.httpClient.get("api/v1/todo", {
             headers: headers
           });
         }
@@ -2135,7 +2135,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             createdAt: Date.now()
           };
           var headers = this.authService.setAuthHeader();
-          return this.httpClient.post("todo", todo, {
+          return this.httpClient.post("api/v1/todo", todo, {
             headers: headers
           });
         }
@@ -2143,7 +2143,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "updateToDo",
         value: function updateToDo(content) {
           var headers = this.authService.setAuthHeader();
-          return this.httpClient.patch("todo/".concat(content._id), content, {
+          return this.httpClient.patch("api/v1/todo/".concat(content._id), content, {
             headers: headers
           });
         }
@@ -2151,7 +2151,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "deleteToDo",
         value: function deleteToDo(content) {
           var headers = this.authService.setAuthHeader();
-          return this.httpClient["delete"]("todo/".concat(content._id), {
+          return this.httpClient["delete"]("api/v1/todo/".concat(content._id), {
             headers: headers
           });
         }

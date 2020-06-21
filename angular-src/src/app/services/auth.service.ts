@@ -14,11 +14,11 @@ export class AuthService {
   user: any;
 
   sendRegisterRequest(user) {
-    return this.httpClient.post(`users/signup`, user);
+    return this.httpClient.post(`api/v1/users/signup`, user);
   }
 
   sendLoginRequest(user) {
-    return this.httpClient.post(`users/login`, user);
+    return this.httpClient.post(`api/v1/users/login`, user);
   }
 
   storeUserData(token, user) {

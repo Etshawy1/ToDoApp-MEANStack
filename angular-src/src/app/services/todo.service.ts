@@ -14,7 +14,7 @@ export class TodoService {
 
   getToDoList() {
     const headers = this.authService.setAuthHeader();
-    return this.httpClient.get(`todo`, {
+    return this.httpClient.get(`api/v1/todo`, {
       headers,
     });
   }
@@ -22,21 +22,21 @@ export class TodoService {
   createToDo(content) {
     const todo = { content, createdAt: Date.now() };
     const headers = this.authService.setAuthHeader();
-    return this.httpClient.post(`todo`, todo, {
+    return this.httpClient.post(`api/v1/todo`, todo, {
       headers,
     });
   }
 
   updateToDo(content) {
     const headers = this.authService.setAuthHeader();
-    return this.httpClient.patch(`todo/${content._id}`, content, {
+    return this.httpClient.patch(`api/v1/todo/${content._id}`, content, {
       headers,
     });
   }
 
   deleteToDo(content) {
     const headers = this.authService.setAuthHeader();
-    return this.httpClient.delete(`todo/${content._id}`, {
+    return this.httpClient.delete(`api/v1/todo/${content._id}`, {
       headers,
     });
   }
