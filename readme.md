@@ -4,12 +4,6 @@
 
 A simple to do list application with accounts and authentication to store a to-do list for each user using MEAN stack technologies.
 
-[![GitHub contributors](https://img.shields.io/github/contributors/Etshawy1/ToDoApp-MEANStack)](https://github.com/Etshawy1/ToDoApp-MEANStack/graphs/contributors)
-[![GitHub issues](https://img.shields.io/github/issues/Etshawy1/ToDoApp-MEANStack)](https://github.com/Etshawy1/ToDoApp-MEANStack/issues)
-[![GitHub forks](https://img.shields.io/github/forks/Etshawy1/ToDoApp-MEANStack)](https://github.com/Etshawy1/ToDoApp-MEANStack/network/members)
-[![GitHub stars](https://img.shields.io/github/stars/Etshawy1/ToDoApp-MEANStack)](https://github.com/Etshawy1/ToDoApp-MEANStack/stargazers)
-[![GitHub license](https://img.shields.io/github/license/Etshawy1/ToDoApp-MEANStack)](https://github.com/Etshawy1/ToDoApp-MEANStack/blob/master/License)
-
 ## Tools used
 
 - Server: [NodeJs](https://nodejs.org/en/download/) with [Express](https://expressjs.com/) as framework.
