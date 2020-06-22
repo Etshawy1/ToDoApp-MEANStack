@@ -41,7 +41,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### API documentation
 
-- postman documentation was used for this project, you can find the post man collection in the root of the repo in json format you can import it in postman application. you can find the documentation [here](https://documenter.getpostman.com/view/10629897/SzRw3C6L?version=latest).
+- postman documentation was used for this project, you can find the post man collection in the root of the repo in json format you can import it in postman application. you can find the documentation [here](https://documenter.getpostman.com/view/10629897/SzzoZFE8).
 
 ## screenshots
 
